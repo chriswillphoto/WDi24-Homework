@@ -1,5 +1,7 @@
-
-let _pagelimit = 1
+const state = {
+  pagenum: 1,
+  pagelimit: 1
+}
 
 
 const searchFlickr = function( term, page ) {
@@ -18,7 +20,7 @@ const searchFlickr = function( term, page ) {
 
 const showImages = function(results) {
   console.log(results)
-  _pagelimit = results.photos.pages
+  state.pagelimit = results.photos.pages
   _(results.photos.photo).each(function(photo){
     const photoURL = generateURL(photo)
     const $img = $("<img/>").attr('src', photoURL).addClass("thumb")
@@ -43,29 +45,27 @@ const generateURL = function (photo) {
 
 $(document).ready( function() {
 
-  let pagenum = 1
 
   $("#search").on("submit", function(e) {
     e.preventDefault();
     $("#images img").remove()
-    pagenum = 1
     const query = $("#query").val();
 
-    searchFlickr(query, pagenum)
-    pagenum += 1
+    searchFlickr(query, state.pagenum)
+    state.pagenum += 1
 
   })
 
   $(window).on("scroll", _.debounce(function() {
     const scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop()
     console.log("yes")
-    if( pagenum <= _pagelimit ){
+    if( state.pagenum <= state.pagelimit ){
       if(scrollBottom > 900) {
         return;
       }
         const query = $("#query").val();
-        searchFlickr(query, pagenum)
-        pagenum += 1
+        searchFlickr(query, state.pagenum)
+        state.pagenum += 1
     }
   }, 800)
   )

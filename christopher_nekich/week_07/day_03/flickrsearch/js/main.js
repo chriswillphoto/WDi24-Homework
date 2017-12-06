@@ -64,7 +64,7 @@ $(document).ready( function() {
         searchFlickr(query, pagenum)
         pagenum += 1
     }
-  }, 1400)
+  }, 1800)
   )
 
   $("#images").on("click", "img", function() {

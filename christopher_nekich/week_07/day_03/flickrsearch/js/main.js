@@ -48,6 +48,7 @@ $(document).ready( function() {
 
   $("#search").on("submit", function(e) {
     e.preventDefault();
+    state.pagenum = 1
     $("#images img").remove()
     const query = $("#query").val();
 

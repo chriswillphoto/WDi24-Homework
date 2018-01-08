@@ -1,0 +1,29 @@
+I"ÿ(function() {
+  var horizontal, vertical;
+
+  horizontal = ['left', 'right'];
+
+  vertical = ['up', 'down'];
+
+  $(function() {
+    var movement;
+    movement = function(fish) {
+      if (parseInt((fish.css('top')).slice(0, -2) < window.innerHeight)) {
+        return console.log('yes');
+      }
+    };
+    return $(".fishbody").each(function() {
+      $(this).css({
+        top: Math.random() * window.innerHeight + "px",
+        left: Math.random() * window.innerWidth + "px"
+      });
+      $(this).addClass(vertical[Math.round(Math.random())]);
+      $(this).addClass(horizontal[Math.round(Math.random())]);
+      console.log($(this).attr('class'));
+      console.log(($(this).css("top")).slice(0, -2));
+      return movement($(this));
+    });
+  });
+
+}).call(this);
+:ET

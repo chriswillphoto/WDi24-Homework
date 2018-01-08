@@ -1,0 +1,23 @@
+I"2(function() {
+  var horizontal, vertical;
+
+  horizontal = ['left', 'right'];
+
+  vertical = ['up', 'down'];
+
+  $(function() {
+    var movement;
+    $(".fishbody").each(function() {
+      $(this).css({
+        top: Math.random() * window.innerHeight + "px",
+        left: Math.random() * window.innerWidth + "px"
+      });
+      $(this).addClass(vertical[Math.round(Math.random())]);
+      $(this).addClass(horizontal[Math.round(Math.random())]);
+      return console.log($(this)["class"]());
+    });
+    return movement = function(fish) {};
+  });
+
+}).call(this);
+:ET

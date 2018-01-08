@@ -1,0 +1,11 @@
+I"(function() {
+  $(function() {
+    $(".fishbody").map(function(i, val) {
+      val.style.top = Math.random() * window.innerHeight + "px";
+      return val.style.left = Math.random() * window.innerWidth + "px";
+    });
+    return console.log('uesu');
+  });
+
+}).call(this);
+:ET

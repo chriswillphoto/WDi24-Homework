@@ -1,0 +1,21 @@
+I"(function() {
+  var horizontal, vertical;
+
+  horizontal = ['left', 'right'];
+
+  vertical = ['up', 'down'];
+
+  $(function() {
+    return $(".fishbody").each(function() {
+      $(this).css({
+        top: Math.random() * window.innerHeight + "px",
+        left: Math.random() * window.innerWidth + "px"
+      });
+      $(this).addClass(vertical[Math.round(Math.random())]);
+      $(this).addClass(horizontal[Math.round(Math.random())]);
+      return console.log(typeof $(this).attr('class'));
+    });
+  });
+
+}).call(this);
+:ET

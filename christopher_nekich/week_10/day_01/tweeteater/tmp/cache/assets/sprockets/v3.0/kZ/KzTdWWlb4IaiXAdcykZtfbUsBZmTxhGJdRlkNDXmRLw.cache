@@ -1,0 +1,11 @@
+I"á(function() {
+  $(function() {
+    return $(".fishbody").map((function(_this) {
+      return function(i, val) {
+        return val.style.top = Math.random() * window.innerHeight;
+      };
+    })(this));
+  });
+
+}).call(this);
+:ET

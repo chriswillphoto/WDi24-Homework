@@ -1,0 +1,12 @@
+I"þ(function() {
+  $(function() {
+    return $(".fishbody").each(function() {
+      return $(this).css({
+        top: Math.random() * window.innerHeight + "px",
+        width: Math.random() * window.innerWidth + "px"
+      });
+    });
+  });
+
+}).call(this);
+:ET

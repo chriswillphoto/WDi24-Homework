@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Yes</title>
+  </head>
+  <body>
+    <% @tweets.each do |t| %>
+    <div class="fishbody">
+      <div class="tail"></div>
+      <div class="words">
+        <%= t.content %>
+      </div>
+    </div>
+    <% end %>
+
+  </body>
+</html>

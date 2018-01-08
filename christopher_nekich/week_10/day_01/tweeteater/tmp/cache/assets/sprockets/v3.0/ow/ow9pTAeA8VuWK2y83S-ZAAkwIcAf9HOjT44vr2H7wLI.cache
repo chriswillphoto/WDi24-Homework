@@ -1,0 +1,7 @@
+I"b(function() {
+  $(function() {
+    return console.log($(".fishbody"));
+  });
+
+}).call(this);
+:ET

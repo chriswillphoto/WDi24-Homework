@@ -1,0 +1,9 @@
+I"ù(function() {
+  $(function() {
+    var fishies;
+    fishies = document.querySelectorAll(".fishbody");
+    return console.log(fishies);
+  });
+
+}).call(this);
+:ET

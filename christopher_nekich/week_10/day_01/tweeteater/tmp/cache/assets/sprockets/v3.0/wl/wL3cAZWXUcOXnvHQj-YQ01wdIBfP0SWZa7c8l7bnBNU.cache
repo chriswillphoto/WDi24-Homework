@@ -1,0 +1,68 @@
+I"ã(function() {
+  var horizontal, vertical;
+
+  horizontal = ['left', 'right'];
+
+  vertical = ['up', 'down'];
+
+  $(function() {
+    var directionCheck, movement, update;
+    directionCheck = function(fish) {
+      if (parseInt((fish.css('top')).slice(0, -2)) > window.innerHeight - 110) {
+        fish.removeClass("down");
+        fish.addClass("up");
+      }
+      if (parseInt((fish.css('top')).slice(0, -2)) < 100) {
+        fish.removeClass("up");
+        fish.addClass("down");
+      }
+      if (parseInt((fish.css('left')).slice(0, -2)) > window.innerWidth - 300) {
+        fish.removeClass("right");
+        fish.addClass("left");
+      }
+      if (parseInt((fish.css('top')).slice(0, -2)) < 300) {
+        fish.removeClass('left');
+        return fish.addClass('right');
+      }
+    };
+    movement = function(fish) {
+      var currentLeft, currentTop, fClass;
+      directionCheck(fish);
+      fClass = fish.attr('class');
+      currentTop = parseInt((fish.css('top')).slice(0, -2));
+      currentLeft = parseInt((fish.css('left')).slice(0, -2));
+      if (fClass.includes('down')) {
+        fish.css('top', currentTop + 4 + "px");
+      }
+      if (fClass.includes('up')) {
+        fish.css('top', currentTop - 4 + "px");
+      }
+      if (fClass.includes('left')) {
+        fish.css('left', currentLeft - 4 + "px");
+      }
+      if (fClass.includes('right')) {
+        return fish.css('right', currentLeft + 4 + "px");
+      }
+    };
+    $(".fishbody").each(function() {
+      $(this).css({
+        top: Math.random() * window.innerHeight + "px",
+        left: Math.random() * window.innerWidth + "px"
+      });
+      $(this).addClass(vertical[Math.round(Math.random())]);
+      return $(this).addClass(horizontal[Math.round(Math.random())]);
+    });
+    update = function() {
+      var a;
+      a = requestAnimationFrame(update);
+      if (a % 2 === 0) {
+        return $(".fishbody").each(function() {
+          return movement($(this));
+        });
+      }
+    };
+    return update();
+  });
+
+}).call(this);
+:ET

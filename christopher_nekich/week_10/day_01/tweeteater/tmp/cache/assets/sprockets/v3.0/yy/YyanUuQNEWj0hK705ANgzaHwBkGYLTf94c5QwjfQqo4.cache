@@ -1,0 +1,11 @@
+I"¸(function() {
+  $(function() {
+    return $(".fishbody").map((function(_this) {
+      return function(i) {
+        return console.log(i);
+      };
+    })(this));
+  });
+
+}).call(this);
+:ET

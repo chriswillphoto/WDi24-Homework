@@ -1,0 +1,52 @@
+I":(function() {
+  var horizontal, vertical;
+
+  horizontal = ['left', 'right'];
+
+  vertical = ['up', 'down'];
+
+  $(function() {
+    var directionCheck, movement;
+    directionCheck = function(fish) {
+      if (parseInt((fish.css('top')).slice(0, -2)) > window.innerHeight - 110) {
+        fish.removeClass("down");
+        fish.addClass("up");
+      }
+      if (parseInt((fish.css('top')).slice(0, -2)) < 100) {
+        fish.removeClass("up");
+        fish.addClass("down");
+      }
+      if (parseInt((fish.css('left')).slice(0, -2)) > window.innerWidth - 300) {
+        fish.removeClass("right");
+        fish.addClass("left");
+      }
+      if (parseInt((fish.css('top')).slice(0, -2)) < 300) {
+        fish.removeClass('left');
+        return fish.addClass('right');
+      }
+    };
+    movement = function(fish) {
+      var currentLeft, currentTop;
+      directionCheck(fish);
+      currentTop = parseInt((fish.css('top')).slice(0, -2));
+      currentLeft = parseInt((fish.css('left')).slice(0, -2));
+      if ((fish.attr('class')).includes('down')) {
+        console.log('yes');
+      }
+      return 'k';
+    };
+    return $(".fishbody").each(function() {
+      $(this).css({
+        top: Math.random() * window.innerHeight + "px",
+        left: Math.random() * window.innerWidth + "px"
+      });
+      $(this).addClass(vertical[Math.round(Math.random())]);
+      $(this).addClass(horizontal[Math.round(Math.random())]);
+      console.log($(this).attr('class'));
+      console.log(($(this).css("top")).slice(0, -2));
+      return console.log(movement($(this)));
+    });
+  });
+
+}).call(this);
+:ET
